@@ -33,6 +33,10 @@ N.A
 
 ## Usage
 
+![image](https://user-images.githubusercontent.com/34308684/181806285-82e6b7f9-a5a2-42c6-8a48-38805a8bc92e.png)
+![image](https://user-images.githubusercontent.com/34308684/181806349-658fa7b2-0836-460c-8526-80a3ee75c837.png)
+
+
 
 ## License
 Apache 2.0 License
