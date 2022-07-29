@@ -3,7 +3,7 @@ const router = require("express").Router();
 const fs = require("fs");
 const path = require("path");
 const {v4:uuid} =require("uuid");
-const dbPath = path.join(__dirname,"../db/db.json");
+const dbPath = path.join(__dirname,'../db/db.json');
 
 function getNotes(){
     return fs.promises.readFile(dbPath,"utf8")
@@ -22,13 +22,13 @@ router.get("/notes", (req,res)=>{
 
 router.post("/notes",(req,res)=>{
     getNotes()
-    .then((data_note)=>{
+    .then(data_note =>{
         const this_data = req.body;
 
-        this_data.id = uuid().slice(0,6);
+        this_data.id = uuid().slice(0,4);
         data_note.push(this_data);
 
-        fs.promises.writeFile(dbPath, JSON.stringify(this_data,null,2))
+        fs.promises.writeFile(dbPath, JSON.stringify(data_note,null,2))
         .then(()=>{
             console.log('too bien');
             res.json(this_data);
@@ -46,7 +46,7 @@ router.delete("/notes/:id",(req,res)=>{
         // filtering out object from array
         let NewNoteData = note_del.filter(currItem => currItem.id != id);
 
-        fs.promises.writeFile(dbPath, JSON.stringify(NewNoteData,null,1))
+        fs.promises.writeFile(dbPath, JSON.stringify(NewNoteData,null,2))
         .then(()=>{
             console.log('deleted succeddfully');
             res.json(NewNoteData);
